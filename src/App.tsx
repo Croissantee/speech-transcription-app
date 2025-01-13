@@ -17,35 +17,22 @@ const App: React.FC = () => {
       alert('Please select a file first.');
       return;
     }
-  
-    const formData = new FormData();
-    formData.append('audio', file);
-  
+
     setLoading(true);
     setTranscription(null);
-  
-    try {
-      const response = await fetch('http://localhost:5000/process-audio', {
-        method: 'POST',
-        body: formData,
-      });
-  
-      if (!response.ok) {
-        const errorMessage = await response.text(); // Get detailed error message
-        console.error('Backend Error:', errorMessage);
-        alert(`Error: ${errorMessage}`);
-        return;
-      }
-  
-      const result = await response.json();
-      setTranscription(result.transcription);
-    } catch (error) {
-      console.error('Error:', error);
-      alert(`An error occurred: ${error.message}`);
-    } finally {
+
+    setTimeout(() => {
+      // Mock transcription result
+      const mockTranscription = `
+        Speaker 1: Hello, how are you?
+        Speaker 2: I'm doing great, thank you! How about you?
+        Speaker 1: I'm good too. Let's discuss the project.
+      `;
+
+      setTranscription(mockTranscription);
       setLoading(false);
-    }
-  };  
+    }, 2000); // Simulate a 2-second processing delay
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-600 via-blue-500 to-teal-500 flex flex-col items-center justify-center p-6">
