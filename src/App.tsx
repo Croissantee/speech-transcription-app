@@ -39,7 +39,7 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen w-full bg-[#0f172a] flex flex-col items-center justify-center p-6 text-white">
       <div className="w-full max-w-3xl bg-[#1e293b] shadow-2xl rounded-2xl p-8">
-        <h1 className="text-4xl font-extrabold text-center mb-8 tracking-tight">🎤 Overlapping Speech Transcription</h1>
+        <h1 className="text-4xl font-extrabold text-center mb-8 tracking-tight">Overlapping Speech Transcription</h1>
         <div className="bg-[#334155] border border-gray-600 rounded-lg p-6 mb-6">
           <input
             type="file"
